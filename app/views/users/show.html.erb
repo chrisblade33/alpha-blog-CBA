@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Votre profil</h1>
 <p>
+  <%= gravatar_for @user, size: 200 %>
+  <br>
   <strong>Username:</strong>
   <%= @user.username %>
 </p>
