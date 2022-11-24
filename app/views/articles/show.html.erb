@@ -1,0 +1,14 @@
+<h1>Show de l'article</h1>
+
+<p>
+  <strong>Titre:</strong>
+  <%= @article.titre %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @article.description %>
+</p>
+
+<%= link_to 'Modifier', edit_article_path(@article) %> |
+<%= link_to 'Retour', articles_path %>
