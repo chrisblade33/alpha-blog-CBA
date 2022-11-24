@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'pages#home'
+
   resources :users, except: [:new]
   resources :articles
   get 'signup', to: 'users#new'
