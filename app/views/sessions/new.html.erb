@@ -1,0 +1,18 @@
+<h1>Login Alpha blog</h1>
+
+<%= form_with(scope: :session, url: login_path) do |form| %>
+
+  <div class="field">
+    <%= form.label :mail %>
+    <%= form.text_field :usermail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password_digest %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit("LogIn") %>
+  </div>
+<% end %>
