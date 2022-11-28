@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 
   def require_same_user 
     if current_user != @user && !current_user.admin?
-      flash[:alert] = 'Vous pouvez éditer votre propre profil'
+      flash[:alert] = 'Vous pouvez éditer ou supprimer votre propre profil'
       redirect_to @user
     end
   end

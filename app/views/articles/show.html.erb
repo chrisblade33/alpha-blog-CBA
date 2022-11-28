@@ -11,5 +11,8 @@
   <%= @article.description %>
 </p>
 
-<%= link_to 'Modifier', edit_article_path(@article) %> |
+<% if logged_in? && (@article.user == current_user || current_user.admin?) %>
+  <%= link_to 'Modifier', edit_article_path(@article) %>
+  <%= link_to 'Supprimer', article_path(@article), method: :delete, date: {confimr: "Etes-vous sûr?"} %>
+<% end %>
 <%= link_to 'Retour', articles_path %>
