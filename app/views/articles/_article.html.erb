@@ -13,8 +13,10 @@
       <td><%= article.titre %></td>
       <td><%= article.description %></td>
       <td><%= link_to 'Voir', article %></td>
-      <td><%= link_to 'Modifier', edit_article_path(article) %></td>
-      <td><%= link_to 'Supprimer', article, method: :delete, data: { confirm: 'Etes vous sûr?' } %></td>
+      <% if logged_in?  && (article.user == current_user || current_user.admin?) %>
+        <td><%= link_to 'Modifier', edit_article_path(article) %></td>
+        <td><%= link_to 'Supprimer', article, method: :delete, data: { confirm: 'Etes vous sûr?' } %></td>7
+      <% end %>
 
     </tr>
   <% end %>

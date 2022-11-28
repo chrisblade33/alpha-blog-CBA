@@ -1,5 +1,6 @@
 <h1>Login Alpha blog</h1>
 
+<%= render 'layouts/navigation' %>
 <%= form_with(scope: :session, url: login_path) do |form| %>
 
   <div class="field">
@@ -15,4 +16,9 @@
   <div class="actions">
     <%= form.submit("LogIn") %>
   </div>
+
+  <div>
+    <%= link_to 'Log Out', logout_path, method: :delete %>
+  </div>
+
 <% end %>

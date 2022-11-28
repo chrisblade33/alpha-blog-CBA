@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :require_user, except: %i[show index]
+  before_action :require_same_user, only: %i[edit update destroy]
 
   # GET /articles or /articles.json
   def index
@@ -22,12 +24,12 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
 
     respond_to do |format|
       if @article.save
         flash[:notice] = "L'article a été enregistré"
-        format.html { redirect_to article_url(@article)}
+        format.html { redirect_to article_url(@article) }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -69,5 +71,12 @@ class ArticlesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def article_params
     params.require(:article).permit(:titre, :description)
+  end
+
+  def require_same_user
+    if current_user != @article.user && !current_user.admin?
+      flash[:alert] = 'Vous pouvez éditer ou supprimer votre article'
+      redirect_to @article
+    end
   end
 end
