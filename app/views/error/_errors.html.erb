@@ -1,6 +1,6 @@
 <% if obj.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(obj.errors.count, "error") %> <%= obj.class.name.downcase %> </h2>
+    <h4><%= pluralize(obj.errors.count, "error") %> <%= obj.class.name.downcase %> </h4>
 
     <ul>
       <% obj.errors.each do |error| %>

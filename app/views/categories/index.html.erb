@@ -1,1 +1,19 @@
+<h1>Liste des catégories</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th>Titre</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |categorie| %>
+      <tr>
+        <td><%= categorie.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
