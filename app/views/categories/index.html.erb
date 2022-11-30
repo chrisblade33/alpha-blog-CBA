@@ -10,7 +10,8 @@
   <tbody>
     <% @categories.each do |categorie| %>
       <tr>
-        <td><%= categorie.name %></td>
+        <td><%= categorie.name %>
+        <p class="card-text"><%= pluralize(categorie.articles.count, "article") %></p></td>
       </tr>
     <% end %>
   </tbody>

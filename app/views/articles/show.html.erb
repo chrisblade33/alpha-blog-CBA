@@ -1,7 +1,11 @@
 <h1>Show de l'article</h1>
 
 <div>by <%= @article.user.username %> </div>
-<p>
+<% if @article.categories.any? %>
+  <div class="mt-2">
+    <%= render @article.categories %>
+  </div>
+<% end %>
   <strong>Titre:</strong>
   <%= @article.titre %>
 </p>

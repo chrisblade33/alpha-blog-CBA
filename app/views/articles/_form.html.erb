@@ -7,8 +7,14 @@
   </div>
 
   <div class="field">
+    <%= form.label :category %>
+    <%= form.text_area :category %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.collection_select(:category_ids, Category.all, :id, :name, { :prompt => "Sélectionner une catégorie" }, { multiple: true,
+        size: 3, class: "custom-select shadow rounded" }) %>
   </div>
 
   <div class="actions">
