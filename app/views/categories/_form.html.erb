@@ -1,0 +1,13 @@
+<%= form_with(model: @category) do |form| %>
+
+    <%= render 'error/errors', obj: @category %>
+  
+    <div class="field">
+      <%= form.label :Nom, "Nom de la catégorie" %>
+      <%= form.text_field :name %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit("Créer") %>
+    </div>
+  <% end %>
